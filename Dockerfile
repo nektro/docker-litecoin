@@ -16,6 +16,7 @@ RUN chmod +x /the/workdir/${folder}/bin/litecoind
 FROM photon
 ARG folder
 COPY --from=stage1 /the/workdir/${folder}/bin/litecoind /app/litecoind
+ENV PRUNE 10000
 VOLUME /data
 EXPOSE 9332
-ENTRYPOINT [ "/app/litecoind", "-datadir=/data", "-server", "-rpcport=9332", "-rpcuser=litecoin", "-rpcpassword=password" ]
+ENTRYPOINT /app/litecoind -datadir=/data -server -rpcbind=0.0.0.0 -rpcallowip=127.0.0.1 -rpcport=9332 -rpcuser=litecoin -rpcpassword=password -prune="$PRUNE"

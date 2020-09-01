@@ -9,6 +9,8 @@ Dockerized Litecoin Daemon
 
 https://litecoin.org/
 
+https://github.com/litecoin-project/litecoin/releases
+
 | Key | Value |
 |-----|-------|
 | Version | `0.18.1` |
